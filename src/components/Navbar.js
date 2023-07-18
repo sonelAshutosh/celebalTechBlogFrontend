@@ -16,9 +16,11 @@ function Navbar() {
     <>
       <div className="px-40 bg-slate-300  shadow-md">
         <div className="h-16 w-full flex items-center">
-          <h1 className=" mx-4 font-extrabold text-2xl cursor-pointer hover:text-gray-600 ">
-            Blog
-          </h1>
+          <Link href="/">
+            <h1 className=" mx-4 font-extrabold text-2xl cursor-pointer hover:text-gray-600 ">
+              Blog
+            </h1>
+          </Link>
           <ul className="flex m-auto mr-0 font-semibold ">
             <Link href="/">
               <li className="mx-4 hover:border-b-black hover:border-b-2 cursor-pointer">

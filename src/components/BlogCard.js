@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import React from 'react'
 import Link from 'next/link'
+import dummyImage from '../../public/assets/blogImage.png'
 
 function BlogCard({ _id, title, desc, imgSrc, createdAt }) {
   return (
@@ -10,13 +11,9 @@ function BlogCard({ _id, title, desc, imgSrc, createdAt }) {
         className="h-44 w-full p-4 my-4 flex items-center shadow-lg rounded-md border border-solid border-b-4 border-r-4 border-black hover:scale-[1.025] transition-all relative"
       >
         <Image
-          src={
-            imgSrc
-              ? imgSrc
-              : 'https://dfstudio-d420.kxcdn.com/wordpress/wp-content/uploads/2019/06/digital_camera_photo-980x653.jpg'
-          }
+          src={imgSrc ? imgSrc : dummyImage}
           alt="Blog Image"
-          className="rounded-md shadow-md"
+          className="h-40 w-56 rounded-md shadow-lg border border-gray-500"
           height="160"
           width="230"
           priority

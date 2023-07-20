@@ -14,9 +14,12 @@ function Comments() {
   const [comments, setComments] = useState([])
 
   useEffect(() => {
-    fetch(`http://localhost:5500/comments/comment/${blogId}`, {
-      method: 'GET',
-    })
+    fetch(
+      `https://celebal-tech-blog-backend-msz9rhal0-sonelashutosh.vercel.app/comments/comment/${blogId}`,
+      {
+        method: 'GET',
+      }
+    )
       .then((res) => res.json())
       .then((res) => {
         setComments(res.commentsById)
@@ -29,18 +32,21 @@ function Comments() {
     const data = new FormData(e.target)
     const content = data.get('comment')
 
-    fetch(`http://localhost:5500/comments`, {
-      method: 'POST',
-      body: JSON.stringify({
-        content,
-        blogId,
-        userId,
-      }),
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-        'Content-type': 'application/json; charset=UTF-8',
-      },
-    }).then((res) => {
+    fetch(
+      `https://celebal-tech-blog-backend-msz9rhal0-sonelashutosh.vercel.app/comments`,
+      {
+        method: 'POST',
+        body: JSON.stringify({
+          content,
+          blogId,
+          userId,
+        }),
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+          'Content-type': 'application/json; charset=UTF-8',
+        },
+      }
+    ).then((res) => {
       if (res.status === 200) Router.reload()
     })
   }

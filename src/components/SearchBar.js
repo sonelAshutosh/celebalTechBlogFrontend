@@ -28,7 +28,7 @@ function SearchBar() {
 
   const handleValueChange = (e) => {
     fetch(
-      `http://localhost:5500/blogs/search/searchByTitle/${e.target.value}`,
+      `https://celebal-tech-blog-backend-msz9rhal0-sonelashutosh.vercel.app/blogs/search/searchByTitle/${e.target.value}`,
       {
         method: 'GET',
         headers: {

@@ -17,13 +17,16 @@ function Commment({ id, content, userId, createdAt }) {
   useEffect(() => {
     setEditAble(userId === loggedInUserId ? true : false)
 
-    fetch(`http://localhost:5500/users/user/${userId}`, {
-      method: 'GET',
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-        'Content-type': 'application/json; charset=UTF-8',
-      },
-    })
+    fetch(
+      `https://celebal-tech-blog-backend-msz9rhal0-sonelashutosh.vercel.app/users/user/${userId}`,
+      {
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+          'Content-type': 'application/json; charset=UTF-8',
+        },
+      }
+    )
       .then((res) => res.json())
       .then((res) => {
         setCommentUser(res.user)
@@ -39,30 +42,36 @@ function Commment({ id, content, userId, createdAt }) {
   }
 
   const handleCommentUpdate = () => {
-    fetch(`http://localhost:5500/comments/comment/${id}`, {
-      method: 'PUT',
-      body: JSON.stringify({
-        id,
-        content: commentContent,
-      }),
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-        'Content-type': 'application/json; charset=UTF-8',
-      },
-    }).then((res) => {
+    fetch(
+      `https://celebal-tech-blog-backend-msz9rhal0-sonelashutosh.vercel.app/comments/comment/${id}`,
+      {
+        method: 'PUT',
+        body: JSON.stringify({
+          id,
+          content: commentContent,
+        }),
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+          'Content-type': 'application/json; charset=UTF-8',
+        },
+      }
+    ).then((res) => {
       setCurrentlyEditing(!currentlyEditing)
       if (res.status === 200) Router.reload()
     })
   }
 
   const handleCommentDelete = () => {
-    fetch(`http://localhost:5500/comments/comment/${id}`, {
-      method: 'DELETE',
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-        'Content-type': 'application/json; charset=UTF-8',
-      },
-    }).then((res) => {
+    fetch(
+      `https://celebal-tech-blog-backend-msz9rhal0-sonelashutosh.vercel.app/comments/comment/${id}`,
+      {
+        method: 'DELETE',
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+          'Content-type': 'application/json; charset=UTF-8',
+        },
+      }
+    ).then((res) => {
       if (res.status === 201) Router.reload()
     })
   }

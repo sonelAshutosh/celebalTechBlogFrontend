@@ -73,7 +73,7 @@ export default function Signin() {
           }}
           className="py-1 font-semibold cursor-pointer text-gray-400 hover:text-gray-950"
         >
-          Don't have a Account ?
+          Don&apos;t have a Account ?
         </p>
       </div>
     </div>

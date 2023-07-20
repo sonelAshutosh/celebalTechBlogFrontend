@@ -79,6 +79,7 @@ function New() {
             type="text"
             id="title"
             name="title"
+            required
           />
           <label htmlFor="title">Description</label>
           <textarea
@@ -87,6 +88,7 @@ function New() {
             id="desc"
             cols="30"
             rows="10"
+            required
           ></textarea>
           <select
             className="border border-black rounded-md my-2 p-2"

@@ -101,6 +101,7 @@ function Edit({ blogData }) {
             name="title"
             value={blogTitle}
             onChange={handleBlogTitleChange}
+            required
           />
           <label htmlFor="title">Description</label>
           <textarea
@@ -111,6 +112,7 @@ function Edit({ blogData }) {
             rows="10"
             value={blogDesc}
             onChange={handleBlogDescChange}
+            required
           ></textarea>
           <select
             className="border border-black rounded-md my-2 p-2"

@@ -10,6 +10,7 @@ import LikeIcon from '@/svg/LikeIcon'
 import DislikeIcon from '@/svg/DislikeIcon'
 import EditIcon from '@/svg/EditIcon'
 import DeleteIcon from '@/svg/DeleteIcon'
+import Comments from '@/components/Comments/Comments'
 
 export default function Index({ blogData, userData }) {
   const router = useRouter()
@@ -163,6 +164,8 @@ export default function Index({ blogData, userData }) {
         </div>
       </div>
       <div className="m-4">{blogData.desc}</div>
+
+      <Comments />
     </div>
   )
 }

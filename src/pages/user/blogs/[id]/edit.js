@@ -49,20 +49,23 @@ function Edit({ blogData }) {
     const userId = getCookie('userId')
 
     // http://localhost:5500/blogs/update/64b47175f4e3c3d20e319c30
-    fetch(`http://localhost:5500/blogs/update/${blogId}`, {
-      method: 'POST',
-      body: JSON.stringify({
-        title,
-        desc,
-        image,
-        category,
-        userId,
-      }),
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-        'Content-type': 'application/json; charset=UTF-8',
-      },
-    }).then((res) => {
+    fetch(
+      `https://celebal-tech-blog-backend-msz9rhal0-sonelashutosh.vercel.app/blogs/update/${blogId}`,
+      {
+        method: 'POST',
+        body: JSON.stringify({
+          title,
+          desc,
+          image,
+          category,
+          userId,
+        }),
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+          'Content-type': 'application/json; charset=UTF-8',
+        },
+      }
+    ).then((res) => {
       if (res.status === 201) router.push('/user/myBlogs')
     })
   }
@@ -152,7 +155,7 @@ export async function getServerSideProps(context) {
   const { accessToken, userId } = cookies
 
   const blogResponse = await fetch(
-    `${process.env.SERVER_URL}/blogs/${blogId}`,
+    `https://celebal-tech-blog-backend-msz9rhal0-sonelashutosh.vercel.app/blogs/${blogId}`,
     {
       method: 'GET',
       headers: {

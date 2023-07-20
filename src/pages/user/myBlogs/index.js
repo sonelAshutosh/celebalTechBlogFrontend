@@ -33,13 +33,16 @@ export async function getServerSideProps({ req }) {
   const cookies = cookie.parse(req ? req.headers.cookie || '' : document.cookie)
   const { accessToken, userId } = cookies
 
-  const response = await fetch(`http://localhost:5500/blogs/users/${userId}`, {
-    method: 'GET',
-    headers: {
-      Authorization: `Bearer ${accessToken}`,
-      'Content-type': 'application/json; charset=UTF-8',
-    },
-  })
+  const response = await fetch(
+    `https://celebal-tech-blog-backend-msz9rhal0-sonelashutosh.vercel.app/blogs/users/${userId}`,
+    {
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    }
+  )
   const userBlogs = await response.json()
 
   return {

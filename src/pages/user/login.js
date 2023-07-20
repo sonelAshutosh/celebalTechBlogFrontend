@@ -12,19 +12,22 @@ export default function Signin() {
     const email = data.get('email')
     const password = data.get('password')
 
-    fetch('http://localhost:5500/users/signIn', {
-      method: 'POST',
-      body: JSON.stringify({
-        email,
-        password,
-      }),
-      headers: {
-        'Content-type': 'application/json; charset=UTF-8',
-      },
-    })
+    fetch(
+      'https://celebal-tech-blog-backend-msz9rhal0-sonelashutosh.vercel.app/users/signIn',
+      {
+        method: 'POST',
+        body: JSON.stringify({
+          email,
+          password,
+        }),
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+        },
+      }
+    )
       .then((res) => res.json())
       .then((res) => {
-        console.log(res.cookie)
+        // console.log(res.cookie)
         if (res.accessToken === undefined || res.userId === undefined) {
           router.push('/user/login')
         } else {
@@ -70,7 +73,7 @@ export default function Signin() {
           }}
           className="py-1 font-semibold cursor-pointer text-gray-400 hover:text-gray-950"
         >
-          Don't have a Account ?{' '}
+          Don't have a Account ?
         </p>
       </div>
     </div>

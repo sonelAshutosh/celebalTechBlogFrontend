@@ -36,7 +36,7 @@ export default function Index({ data }) {
   useEffect(() => {
     const handleNextPagesFetch = async () => {
       const response = await fetch(
-        `http://localhost:5500/blogs/category/${blogCategory}/pages/${pageNumber}`,
+        `https://celebal-tech-blog-backend-msz9rhal0-sonelashutosh.vercel.app/blogs/category/${blogCategory}/pages/${pageNumber}`,
         {
           method: 'GET',
           headers: {
@@ -130,7 +130,7 @@ export async function getServerSideProps(context) {
   const { accessToken, userId } = cookies
 
   const response = await fetch(
-    `http://localhost:5500/blogs/category/all/pages/1`,
+    `https://celebal-tech-blog-backend-msz9rhal0-sonelashutosh.vercel.app/blogs/category/all/pages/1`,
     {
       method: 'GET',
       headers: {

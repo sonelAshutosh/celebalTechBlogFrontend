@@ -37,16 +37,19 @@ export default function Index({ blogData, userData }) {
     setLiked(true)
     setDisLiked(false)
 
-    fetch(`http://localhost:5500/blogs/like/${blogData._id}`, {
-      method: 'POST',
-      body: JSON.stringify({
-        userId: loggedInUserId,
-      }),
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-        'Content-type': 'application/json; charset=UTF-8',
-      },
-    }).then((res) => {
+    fetch(
+      `https://celebal-tech-blog-backend-msz9rhal0-sonelashutosh.vercel.app/blogs/like/${blogData._id}`,
+      {
+        method: 'POST',
+        body: JSON.stringify({
+          userId: loggedInUserId,
+        }),
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+          'Content-type': 'application/json; charset=UTF-8',
+        },
+      }
+    ).then((res) => {
       if (res.status === 201) {
         setLikesCount(likesCount + 1)
         setDisLikesCount(disLikesCount - 1)
@@ -58,16 +61,19 @@ export default function Index({ blogData, userData }) {
     setDisLiked(true)
     setLiked(false)
 
-    fetch(`http://localhost:5500/blogs/dislike/${blogData._id}`, {
-      method: 'POST',
-      body: JSON.stringify({
-        userId: loggedInUserId,
-      }),
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-        'Content-type': 'application/json; charset=UTF-8',
-      },
-    }).then((res) => {
+    fetch(
+      `https://celebal-tech-blog-backend-msz9rhal0-sonelashutosh.vercel.app/blogs/dislike/${blogData._id}`,
+      {
+        method: 'POST',
+        body: JSON.stringify({
+          userId: loggedInUserId,
+        }),
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+          'Content-type': 'application/json; charset=UTF-8',
+        },
+      }
+    ).then((res) => {
       if (res.status === 201) {
         setDisLikesCount(disLikesCount + 1)
         setLikesCount(likesCount - 1)
@@ -77,16 +83,19 @@ export default function Index({ blogData, userData }) {
 
   const handleDelete = () => {
     if (confirm('Are you sure you want to delete !')) {
-      fetch(`http://localhost:5500/blogs/delete/${blogData._id}`, {
-        method: 'DELETE',
-        body: JSON.stringify({
-          blogId: blogData._id,
-        }),
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-          'Content-type': 'application/json; charset=UTF-8',
-        },
-      }).then((res) => {
+      fetch(
+        `https://celebal-tech-blog-backend-msz9rhal0-sonelashutosh.vercel.app/blogs/delete/${blogData._id}`,
+        {
+          method: 'DELETE',
+          body: JSON.stringify({
+            blogId: blogData._id,
+          }),
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+            'Content-type': 'application/json; charset=UTF-8',
+          },
+        }
+      ).then((res) => {
         if (res.status === 201) router.push('/user/myBlogs')
       })
     }
@@ -177,7 +186,7 @@ export async function getServerSideProps(context) {
   const { accessToken, userId } = cookies
 
   const blogResponse = await fetch(
-    `${process.env.SERVER_URL}/blogs/${blogId}`,
+    `https://celebal-tech-blog-backend-msz9rhal0-sonelashutosh.vercel.app/blogs/${blogId}`,
     {
       method: 'GET',
       headers: {
@@ -190,7 +199,7 @@ export async function getServerSideProps(context) {
   const { blog } = blogData
 
   const userResponse = await fetch(
-    `${process.env.SERVER_URL}/users/user/${blog.userId}`,
+    `https://celebal-tech-blog-backend-msz9rhal0-sonelashutosh.vercel.app/users/user/${blog.userId}`,
     {
       method: 'GET',
       headers: {

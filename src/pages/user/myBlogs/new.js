@@ -29,20 +29,23 @@ function New() {
     const category = data.get('category')
     const userId = getCookie('userId')
 
-    fetch(`http://localhost:5500/blogs`, {
-      method: 'POST',
-      body: JSON.stringify({
-        title,
-        desc,
-        image,
-        category,
-        userId,
-      }),
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-        'Content-type': 'application/json; charset=UTF-8',
-      },
-    }).then((res) => {
+    fetch(
+      `https://celebal-tech-blog-backend-msz9rhal0-sonelashutosh.vercel.app/blogs`,
+      {
+        method: 'POST',
+        body: JSON.stringify({
+          title,
+          desc,
+          image,
+          category,
+          userId,
+        }),
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+          'Content-type': 'application/json; charset=UTF-8',
+        },
+      }
+    ).then((res) => {
       if (res.status === 201) router.push('/user/myBlogs')
     })
   }

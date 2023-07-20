@@ -12,17 +12,20 @@ export default function Signup() {
     const email = data.get('email')
     const password = data.get('password')
 
-    fetch('http://localhost:5500/users/signUp', {
-      method: 'POST',
-      body: JSON.stringify({
-        name,
-        email,
-        password,
-      }),
-      headers: {
-        'Content-type': 'application/json; charset=UTF-8',
-      },
-    }).then((res) => {
+    fetch(
+      'https://celebal-tech-blog-backend-msz9rhal0-sonelashutosh.vercel.app/users/signUp',
+      {
+        method: 'POST',
+        body: JSON.stringify({
+          name,
+          email,
+          password,
+        }),
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+        },
+      }
+    ).then((res) => {
       if (res.status === 201) router.push('/user/login')
     })
   }

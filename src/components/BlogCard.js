@@ -13,15 +13,15 @@ function BlogCard({ _id, title, desc, imgSrc, createdAt }) {
         <Image
           src={imgSrc ? imgSrc : dummyImage}
           alt="Blog Image"
-          className="h-40 w-56 rounded-md shadow-lg border border-gray-500"
+          className="w-56 h-40 border border-gray-500 rounded-md shadow-lg"
           height="160"
           width="230"
           priority
         />
         <div className="h-full p-4">
           <h1 className="text-2xl font-bold">{title}</h1>
-          <p className="text-lg ">{desc}</p>
-          <span className="text-gray-400 absolute bottom-2 right-4">
+          <p className="overflow-hidden text-lg line-clamp-2">{desc}</p>
+          <span className="absolute text-gray-400 bottom-2 right-4">
             {new Date(createdAt).toLocaleDateString('en-US')}
           </span>
         </div>

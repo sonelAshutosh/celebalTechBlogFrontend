@@ -14,26 +14,26 @@ function Navbar() {
 
   return (
     <>
-      <div className="px-40 bg-slate-300  shadow-md">
-        <div className="h-16 w-full flex items-center">
+      <div className="px-40 shadow-md bg-slate-300">
+        <div className="flex items-center w-full h-12">
           <Link href="/">
-            <h1 className=" mx-4 font-extrabold text-2xl cursor-pointer hover:text-gray-600 ">
+            <h1 className="mx-4 text-2xl font-extrabold cursor-pointer hover:text-gray-600">
               Blog
             </h1>
           </Link>
           <ul className="flex m-auto mr-0 font-semibold ">
             <Link href="/">
-              <li className="mx-4 hover:border-b-black hover:border-b-2 cursor-pointer">
+              <li className="mx-4 cursor-pointer hover:border-b-black hover:border-b-2">
                 All Blogs
               </li>
             </Link>
             <Link href="/user/myBlogs">
-              <li className="mx-4 hover:border-b-black hover:border-b-2 cursor-pointer">
+              <li className="mx-4 cursor-pointer hover:border-b-black hover:border-b-2">
                 My Blogs
               </li>
             </Link>
             <li
-              className="mx-4 hover:border-b-black hover:border-b-2 cursor-pointer"
+              className="mx-4 cursor-pointer hover:border-b-black hover:border-b-2"
               onClick={handleLogout}
             >
               Logout

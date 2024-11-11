@@ -56,13 +56,13 @@ export default function Index({ data }) {
   return (
     <>
       <div>
-        <div className="mx-40 p-4 sticky top-0 z-10 flex justify-between">
+        <div className="sticky top-0 z-10 flex justify-between p-4 mx-40">
           <div className="flex items-center">
             <label className="pr-2" htmlFor="category">
               Filter :
             </label>
             <select
-              className="border-2 rounded-md p-1"
+              className="p-1 border-2 rounded-md"
               name="category"
               id="category"
               onChange={(e) => handleFilter(e)}
@@ -96,7 +96,7 @@ export default function Index({ data }) {
             })}
           </div>
         </div>
-        <div className="h-[5vh] flex items-center justify-center">
+        <div className="h-[4vh] flex items-center justify-center">
           <button
             className={
               pageNumber <= 1
